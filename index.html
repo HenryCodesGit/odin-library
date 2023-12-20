@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title-container">
+                <div class="temp logo"></div>
+                <div class="title">Odin Library</div>
+            </div>
+            <div class="button-container">
+                <button id="add">Add Book</button>
+            </div>
+        </div>
+        <div class ="book-container">
+            <table class="shelf">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read?</th>
+                    <th>Options</th>
+                </tr>
+                <!-- This is a tempalte node only and will be removed upon page load-->
+                <tr class="book-template">
+                    <td class="title">Book Title</td>
+                    <td class="author">Book Author</td>
+                    <td class="pages">Pages</td>
+                    <td class="has-read">true</td>
+                    <td>
+                        <button class="read">Read</button>
+                        <button class="delete">Delete</button>
+                    </td>
+                </tr>
+                <!---->
+            </table>
+        </div>
+    </div>
+</body>
+</html>
