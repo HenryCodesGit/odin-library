@@ -42,5 +42,34 @@
             </table>
         </div>
     </div>
+
+    <dialog open>
+        <form>
+            <ul>
+                <li>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" required>
+                </li>
+                <li>
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" required>
+                </li>
+                <li>
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" value="0" min="0">
+                </li>
+                <li>
+                    <label for="hasRead">hasRead</label>
+                    <input type="checkbox" name="hasRead" id="hasRead">
+                </li>
+                <li>
+                    <button type="submit">Submit</button>
+                </li>
+                <li>
+                    <button type="button" class="close">Close</button>
+                </li>
+            </ul>
+        </form>
+    </dialog>
 </body>
 </html>

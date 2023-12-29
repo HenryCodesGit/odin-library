@@ -1,9 +1,29 @@
-let myLibrary = [];
+//Setting up variable to keep track of the modal and its behaviour
+const MODAL = document.querySelector('dialog'); MODAL.close();
+MODAL.querySelector('.close').addEventListener('click', () => {
+    MODAL.close();
+    MODAL.querySelector('form').reset();
+});
+MODAL.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    //Add a new book
+    const book = new Book(
+        MODAL.querySelector('input#title').value,
+        MODAL.querySelector('input#author').value,
+        MODAL.querySelector('input#pages').value,
+        MODAL.querySelector('input#hasRead').checked,
+    );
+    addBookToLibrary(book);
+
+    //Reset the form
+    MODAL.querySelector('form').reset();
+    MODAL.close();
+});
 
 //Setting up variable for the add button
 const ADD_BOOK = document.querySelector('#add');
 ADD_BOOK.addEventListener('click', ()=>{
-    alert('hi');
+    MODAL.showModal();
 });
 
 //Getting HTML template element to populate more book rows
@@ -14,13 +34,26 @@ const BOOK_TEMPLATE = _.cloneNode(true);
 //Need reference to the library table itself so it can add more rows
 const BOOK_SHELF = document.querySelector('.shelf > tbody');
 
+/*
 function Book(title, author, pages, hasRead){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.hasRead = (hasRead == null || hasRead == undefined) ? false : true;
 }
+*/
 
+class Book{
+    constructor(title,author,pages,hasRead){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.hasRead = hasRead;
+    }
+}
+
+
+let myLibrary = [];
 function addBookToLibrary(book){
 
     //Keep track of date item was put in library
@@ -46,8 +79,8 @@ function addBookToLibrary(book){
 
     //Set up 'delete' button so that it can delete the book
     bookElement.querySelector('.delete').addEventListener('click', () => {
-        bookElement.remove()
-        myLibrary = myLibrary.filter(book => book.timeStamp == TIME);
+        bookElement.remove();
+        myLibrary = myLibrary.filter(book => book.timeStamp != TIME);
     });
 
     //Set up the 'read' button so it can update the status of the book
@@ -73,11 +106,11 @@ function logBooks(){
 }
 
 
-setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 10);
-setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 10);
-setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 10);
-setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 10);
-setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 10);
+setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 100);
+setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 200);
+setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 300);
+setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 400);
+setTimeout(function(){addBookToLibrary(new Book('a','b','3',false));}, 500);
     
 
 
